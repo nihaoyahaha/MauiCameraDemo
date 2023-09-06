@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MauiApp1.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:cv="clr-namespace:Camera.MAUI;assembly=Camera.MAUI">
+
+    <ScrollView>
+        <Grid Margin="20" RowDefinitions="auto,auto">
+            <Grid
+                x:Name="gridRoot"
+                BackgroundColor="LightCoral"
+                HorizontalOptions="Center">
+                <cv:CameraView
+                    x:Name="cameraView"
+                    CamerasLoaded="cameraView_CamerasLoaded"
+                    HeightRequest="400"
+                    WidthRequest="600" />
+                <Grid
+                    x:Name="rectGrid"
+                    BackgroundColor="#314029"
+                    HorizontalOptions="Start"
+                    RowDefinitions="auto,auto,auto"
+                    VerticalOptions="Start"
+                    WidthRequest="150">
+                    <Grid.GestureRecognizers>
+                        <PanGestureRecognizer PanUpdated="PanGestureRecognizer_PanUpdated" />
+                    </Grid.GestureRecognizers>
+                    <Label
+                        Margin="5"
+                        FontSize="25"
+                        HorizontalOptions="Start"
+                        Text="文本1"
+                        TextColor="White" />
+                    <Label
+                        Grid.Row="1"
+                        Margin="5"
+                        FontSize="25"
+                        HorizontalOptions="Center"
+                        Text="文本2"
+                        TextColor="White" />
+                    <Label
+                        Grid.Row="2"
+                        Margin="5"
+                        FontSize="25"
+                        HorizontalOptions="End"
+                        Text="文本3"
+                        TextColor="White" />
+                </Grid>
+            </Grid>
+            <Grid
+                Grid.Row="1"
+                BackgroundColor="LightCyan"
+                RowDefinitions="auto,auto,auto,auto">
+                <Label
+                    x:Name="lb_CameraSizes"
+                    FontSize="30"
+                    HorizontalOptions="Center"
+                    Text="摄像头分辨率:" />
+                <HorizontalStackLayout Grid.Row="1" HorizontalOptions="Center">
+                    <Label
+                        Grid.Row="1"
+                        Margin="20,0,0,0"
+                        FontSize="30"
+                        Text="摄像头个数:"
+                        VerticalTextAlignment="Center" />
+                    <Entry
+                        x:Name="txt_CameraCount"
+                        FontSize="30"
+                        HeightRequest="50"
+                        IsEnabled="False"
+                        WidthRequest="100" />
+                    <Label
+                        x:Name="lb_CameraPosition"
+                        Margin="20,0,0,0"
+                        FontSize="30"
+                        VerticalTextAlignment="Center" />
+                    <Button
+                        x:Name="btn_ChangeCamera"
+                        Margin="20,0,0,0"
+                        Clicked="btn_ChangeCamera_Clicked"
+                        FontSize="20"
+                        Text="切换摄像头" />
+                </HorizontalStackLayout>
+
+                <Image
+                    x:Name="img2"
+                    Grid.Row="2"
+                    HeightRequest="200"
+                    HorizontalOptions="Center"
+                    Source="dotnet_bot.png" />
+
+                <Button
+                    x:Name="CounterBtn"
+                    Grid.Row="3"
+                    Clicked="OnCounterClicked"
+                    FontSize="20"
+                    HorizontalOptions="Center"
+                    Text="拍照" />
+            </Grid>
+        </Grid>
+
+    </ScrollView>
+
+</ContentPage>
