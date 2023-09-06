@@ -1,0 +1,2 @@
+# MauiCameraDemo
+一个使用maui框架拍照片保存到本地的简单demo
